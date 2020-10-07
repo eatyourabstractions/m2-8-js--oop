@@ -1,6 +1,34 @@
 // From 2.1. and 2.2
 // Copy over your solutions classes you created in 2.1 and 2.2.
 // Paste them right here:
+class Book {
+  constructor(title, genre, author, isRead){
+      this.title = title;
+      this.genre = genre;
+      this.author = author;
+      this.isRead = isRead;
+  }
+}
+
+class BookList {
+  // Code here
+  constructor(){
+    this.books = [];
+    this.lastRead = null;
+    this.currentlyReading = null
+  }
+  add(book){
+    if(this.currentlyReading === null){this.currentlyReading = book}
+    this.books.push(book);
+  }
+  getNumUnread(){
+    return this.books.filter(b => b.isRead !== true)
+  }
+  getNumRead(){
+    return this.books.filter(b => b.isRead === true)
+  }
+}
+
 
 // Exercise 2.3
 //
@@ -21,6 +49,8 @@
 // respectively.
 //
 // The following code will fail by default. Your goal is to get it to run, and output the values specified at the end:
+
+
 
 const homeLibrary = new BookList();
 
